@@ -1,5 +1,5 @@
-<h1 align="center">cheerio-mapper</h1>
-<h5 align="center">Cheerio plugin that extracts information from a html string based on a configuration parameter</h5>
+# cheerio-mapper
+#### Cheerio plugin that extracts information from a html string based on a configuration parameter
 
 ## Installation
 

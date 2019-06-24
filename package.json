@@ -1,6 +1,6 @@
 {
   "name": "cheerio-mapper",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Extracts information from a html string based on a configuration parameter",
   "main": "index.js",
   "author": "Robert <rfainarea@gmail.com>",

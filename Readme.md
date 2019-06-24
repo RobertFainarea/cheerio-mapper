@@ -58,12 +58,12 @@ const map = [
   {
     key: 'actor',
     path: '.actor',
-    nodes: [{ name: 'h1', born: 'p' }],
+    nodes: [{ key: 'name', path: 'h1' }, { key: 'born', path: 'p' }],
   },
   {
     key: 'movie',
     path: '.movie',
-    nodes: [{ title: 'h1', released: 'p' }],
+    nodes: [{ key: 'title', path: 'h1' }, { key: 'year', path: 'p' }],
   },
 ];
 

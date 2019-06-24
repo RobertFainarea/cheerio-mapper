@@ -114,7 +114,47 @@ test('nested multiple', () => {
   ]);
 });
 
-test('combined example', () => {
+test('basic example', () => {
+  const html = `
+    <section >
+      <div class="actor">
+        <h1>Will Smith</h1>
+        <p>September 25, 1968</p>
+      </div>
+  
+      <div class="movie">
+        <h1>Men in black</h1>
+        <p>July 2, 1997</p>
+      </div>
+    </section>
+  `;
+  const map = [
+    {
+      key: 'actor',
+      path: '.actor',
+      nodes: [{ key: 'name', path: 'h1' }, { key: 'born', path: 'p' }],
+    },
+    {
+      key: 'movie',
+      path: '.movie',
+      nodes: [{ key: 'title', path: 'h1' }, { key: 'year', path: 'p' }],
+    },
+  ];
+
+  const result = new Mapper(html, map).extract();
+  expect(result).toEqual({
+    actor: {
+      name: 'Will Smith',
+      born: 'September 25, 1968',
+    },
+    movie: {
+      title: 'Men in black',
+      year: 'July 2, 1997',
+    },
+  });
+});
+
+test('advanced example', () => {
   const html = `
 	<div>
 		<div class="actor">

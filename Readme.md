@@ -7,6 +7,27 @@
 
 [Cheerio](https://www.npmjs.com/package/cheerio) is listed as a peer dependency.
 
+## API
+
+### target properties
+
+| property  | type      |
+| --------- | --------- |
+| attr      | _string_  |
+| data      | _string_  |
+| innerHTML | _boolean_ |
+| outerHTML | _boolean_ |
+| text      | _default_ |
+
+### mapping properties
+
+| property | type     |
+| -------- | -------- |
+| multiple | _bool_   |
+| key      | _string_ |
+| path     | _string_ |
+| nodes    | _array_  |
+
 ## Examples
 
 ### usage
@@ -16,105 +37,49 @@ const Mapper = require('cheerio-mapper');
 const result = new Mapper(html, map).extract();
 ```
 
-### text
-
-By default, the text from the node is extracted if none of the properties `innerHTML`, `outerHTML`, `attr` and `data` are defined.
-
-```js
-const html = '<div><h1>foo</h1><p>bar</p></div>';
-const map = { path: 'div' };
-
-new Mapper(html, map).extract(); // => "foobar"
-```
-
-### outerHTML
-
-```js
-const html = '<div><h1>foo</h1><p>bar</p></div>';
-const map = { path: 'div', outerHTML: true };
-
-new Mapper(html, map).extract(); // => <div><h1>foo</h1><p>bar</p></div>
-```
-
-### innerHTML
-
-```js
-const html = '<div><h1>foo</h1><p>bar</p></div>';
-const map = { path: 'div', innerHTML: true };
-
-new Mapper(html, map).extract(); // => <h1>foo</h1><p>bar</p>
-```
-
-### attr
-
-```js
-const html = '<a href="www.foo.com" />';
-const map = { path: 'a', attr: 'href' };
-
-new Mapper(html, map).extract(); // => "www.foo.com"
-```
-
-### data
-
-```js
-const html = '<div data-foo="bar" />';
-const map = { path: 'div', data: 'foo' };
-
-new Mapper(html, map).extract(); // => "bar"
-```
-
-### parse
-
-```js
-const html = '<div data-foo="1" />';
-const map = { path: 'div', data: 'foo', parse: n => parseInt(n) };
-
-new Mapper(html, map).extract(); // => 1
-```
-
-### multiple
+### basic example
 
 ```js
 const html = `
-	<ul>
-		<li>item 1</li>
-		<li>item 2</li>
-	</ul>
+  <section >
+    <div class="actor">
+      <h1>Will Smith</h1>
+      <p>September 25, 1968</p>
+    </div>
+
+    <div class="movie">
+      <h1>Men in black</h1>
+      <p>July 2, 1997</p>
+    </div>
+  </section>
 `;
-const map = { path: 'li', multiple: true };
+const map = [
+  {
+    key: 'actor',
+    path: '.actor',
+    nodes: [{ name: 'h1', born: 'p' }],
+  },
+  {
+    key: 'movie',
+    path: '.movie',
+    nodes: [{ title: 'h1', released: 'p' }],
+  },
+];
 
-new Mapper(html, map).extract(); // => ["item 1", "item 2"]
+new Mapper(html, map).extract();
+/* => {
+  actor: {
+    name: "Will Smith",
+    born: "September 25, 1968"
+  },
+  movie: {
+    name: "Men in black",
+    born: "July 2, 1997"
+  }
+} */
 ```
 
-### parse
-
-```js
-const html = '<div data-foo="1" />';
-const map = { path: 'div', data: 'foo', parse: n => parseInt(n) };
-
-new Mapper(html, map).extract(); // => 1
-```
-
-### nested
-
-```js
-const html = `
-  <ul>
-    <li>
-      <h1>title</h1>
-      <p>description</p>
-    </li>
-  </ul>
-`;
-const map = {
-  path: 'li',
-  nodes: [{ key: 'title', path: 'h1' }, { key: 'description', path: 'p' }],
-};
-
-new Mapper(html, map).extract(); // => { title: "title", description: "description" }
-```
-
-### combined example
+### advanced example
 
 ```js
 const html = `

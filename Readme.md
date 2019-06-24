@@ -99,12 +99,12 @@ new Mapper(html, map).extract(); // => 1
 
 ```js
 const html = `
-	<ul>
-		<li>
-			<h1>title</h1>
-			<p>description</p>
-		</li>
-	</ul>
+  <ul>
+    <li>
+      <h1>title</h1>
+      <p>description</p>
+    </li>
+  </ul>
 `;
 const map = {
   path: 'li',
@@ -118,30 +118,30 @@ new Mapper(html, map).extract(); // => { title: "title", description: "descripti
 
 ```js
 const html = `
-	<div>
-		<div class="actor">
-			<h1>Will Smith</h1>
-			<p>Born September 25, 1968...</p>
-			<ul>
-				<li>I am legend</li>
-				<li>Men in black</li>
-				<li>Independence day</li>
-			</ul>
-		</div>
-		<div class="actor">
-			<h1>Christian Bale</h1>
-			<p>Born January 30, 1974...</p>
-			<ul>
-				<li>The dark knight</li>
-				<li>American hustle</li>
-			</ul>
-		</div>
+  <div>
+    <div class="actor">
+      <h1>Will Smith</h1>
+      <p>Born September 25, 1968...</p>
+      <ul>
+        <li>I am legend</li>
+        <li>Men in black</li>
+        <li>Independence day</li>
+      </ul>
+    </div>
+    <div class="actor">
+      <h1>Christian Bale</h1>
+      <p>Born January 30, 1974...</p>
+      <ul>
+        <li>The dark knight</li>
+        <li>American hustle</li>
+      </ul>
+    </div>
 
-		<div class="links">
-			<a href="www.foobar.com?actor=smith">Will Smith</a>
-			<a href="www.foobar.com?actor=bale">Christian Bale</a>
-		</div>
-	</div>
+    <div class="links">
+      <a href="www.foobar.com?actor=smith">Will Smith</a>
+      <a href="www.foobar.com?actor=bale">Christian Bale</a>
+    </div>
+  </div>
 `;
 const map = [
   {

@@ -48,7 +48,10 @@ class Mapper {
 
   extract() {
     return this.selector instanceof Array
-      ? this.selector.reduce((acc, s) => Object.assign(acc, { [s.key]: this.extractSelect(s) }), {})
+      ? this.selector.reduce(
+          (acc, s) => Object.assign(acc, { [s.key]: this.extractSelect(s) }),
+          {}
+        )
       : this.extractSelect(this.selector);
   }
 }

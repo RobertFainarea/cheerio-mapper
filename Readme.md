@@ -165,19 +165,16 @@ const map = [
 
 new Mapper(html, map).extract();
 /* => {
-	actors: [
-		{
-			name: "Will Smith",
-			bio: "Born September 25, 1968...",
-			movies: ["I am legend", "Men in black", "Independence day"]
-		},
-		{
-			name: "Christian Bale",
-			bio: "Born January 30, 1974...",
-			movies: ["The dark knight", "American hustle"]
-		}
-	],
-	linkQueries: ["actor=smith", "actor=bale"]
+  actors: [{
+    name: "Will Smith",
+    bio: "Born September 25, 1968...",
+    movies: ["I am legend", "Men in black", "Independence day"]
+  }, {
+    name: "Christian Bale",
+    bio: "Born January 30, 1974...",
+    movies: ["The dark knight", "American hustle"]
+  }],
+  linkQueries: ["actor=smith", "actor=bale"]
 } */
 ```
 

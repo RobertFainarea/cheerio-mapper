@@ -1,5 +1,6 @@
 # cheerio-mapper
-#### Cheerio plugin that extracts information from a html string based on a configuration parameter
+
+Cheerio plugin that extracts information from a html string based on a configuration parameter
 
 ## Installation
 

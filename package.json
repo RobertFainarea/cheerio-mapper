@@ -1,16 +1,23 @@
 {
   "name": "cheerio-mapper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Extracts information from a html string based on a configuration parameter",
   "main": "index.js",
   "author": "Robert <rfainarea@gmail.com>",
   "license": "ISC",
-  "peerDependencies": {
-    "cheerio": "^1.0.0-rc.1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/RobertFainarea/cheerio-mapper"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "cheerio": "^1.0.0-rc.1"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "jest": "^24.8.0"
   },
   "keywords": [
     "cheerio",

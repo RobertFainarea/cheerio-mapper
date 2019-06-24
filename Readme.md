@@ -9,7 +9,7 @@
 
 ## API
 
-### target properties
+#### target properties
 
 | property  | type      |
 | --------- | --------- |
@@ -19,25 +19,25 @@
 | outerHTML | _boolean_ |
 | text      | _default_ |
 
-### mapping properties
+#### mapping properties
 
 | property | type     |
 | -------- | -------- |
-| multiple | _bool_   |
 | key      | _string_ |
 | path     | _string_ |
+| multiple | _bool_   |
 | nodes    | _array_  |
 
 ## Examples
 
-### usage
+#### usage
 
 ```js
 const Mapper = require('cheerio-mapper');
 const result = new Mapper(html, map).extract();
 ```
 
-### basic example
+#### basic example
 
 ```js
 const html = `
@@ -73,13 +73,13 @@ new Mapper(html, map).extract();
     born: "September 25, 1968"
   },
   movie: {
-    name: "Men in black",
-    born: "July 2, 1997"
+    title: "Men in black",
+    year: "July 2, 1997"
   }
 } */
 ```
 
-### advanced example
+#### advanced example
 
 ```js
 const html = `
